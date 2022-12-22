@@ -1,0 +1,11 @@
+@import 'style/reset.scss';
+@import url(https://fonts.googleapis.com/css?family=Lato:300,regular,700);
+.App {
+    font-family: Lato;
+    font-weight: 400;
+    background-color: black;
+}
+.container {
+    max-width: 1338px;
+    margin: 0 auto;
+}
