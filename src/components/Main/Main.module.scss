@@ -1,0 +1,65 @@
+.main {
+    padding: 40px 0px 0px 60px;
+    background: rgba(255, 255, 255, 0.1);
+    min-width: 100%;
+}
+.formDiv {
+
+}
+.form {
+    input {
+        background: url('../../assets/images/search.png') no-repeat 12px;
+        padding: 13px 50px;
+        border: 1px solid rgba(217, 217, 217, 0.3);
+        border-radius: 6px;
+        min-height: 45px;
+        width: 897px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;        
+        color: #E1E1E1;
+    }
+    input:focus {
+        border: 1px solid rgba(225, 225, 225, 0.6);
+    }
+    button {
+        padding: 13px 22px;
+        background: #F33F3F;
+        border-radius: 6px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #000;
+    }
+}
+
+.title {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 38px;
+    margin: 35px 0px;
+}
+.items {
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    column-gap: 62px;
+    row-gap: 30px;
+}
+.item {
+    max-width: 200px;
+    background: #1F1F1F;
+    border-radius: 6px;
+}
+.poster {
+    border-radius: 6px 6px 0px 0px;
+    width: 200px;
+}
+.name {
+    display: inline-block;
+    margin: 20px 26px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 19px;
+    color: #E1E1E1;
+}

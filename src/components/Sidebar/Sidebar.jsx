@@ -1,10 +1,10 @@
 import React from 'react'
 import s from './Sidebar.module.scss'
-import Item from './Item'
-import home from '../assets/images/sidebar/Home.png'
-import history from '../assets/images/sidebar/history.png'
-import user from '../assets/images/sidebar/user.png'
-import options from '../assets/images/sidebar/options.png'
+import Item from './Item.jsx'
+import home from '../../assets/images/sidebar/Home.png'
+import history from '../../assets/images/sidebar/history.png'
+import user from '../../assets/images/sidebar/user.png'
+import options from '../../assets/images/sidebar/options.png'
 
 const Sidebar = () => {
   return (
@@ -21,7 +21,7 @@ const Sidebar = () => {
             + Create category
         </button>
         <div className={s.myCategories}>
-            <h3>My Lists</h3>
+            <h3>My Categories</h3>
             {/* <ul>
                 <li></li>
             </ul> */}
