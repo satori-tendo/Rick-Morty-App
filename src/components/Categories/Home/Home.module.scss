@@ -1,6 +1,6 @@
-@import '../../style/mixins.scss';
+@import '../../../style/mixins.scss';
 
-.main {
+.home {
     padding: 40px 0px 0px 60px;
     background-color: #363636;
     min-width: 100%;
@@ -10,7 +10,7 @@
 }
 .form {
     input {
-        background: url('../../assets/images/search.png') no-repeat 12px;
+        background: url('../../../assets/images/search.png') no-repeat 12px;
         padding: 13px 50px;
         border: 1px solid rgba(217, 217, 217, 0.3);
         border-radius: 6px;
@@ -70,6 +70,6 @@
     text-align: center;
     font-weight: 400;
     font-size: 26px;
-    line-height: 19px;
+    line-height: 25px;
     color: #E1E1E1;
 }
