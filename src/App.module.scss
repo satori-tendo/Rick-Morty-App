@@ -1,4 +1,5 @@
 @import 'style/reset.scss';
+@import 'style/mixins.scss';
 @import url(https://fonts.googleapis.com/css?family=Lato:300,regular,700);
 .App {
     font-family: Lato;
@@ -9,5 +10,18 @@
 .container {
     max-width: 1338px;
     margin: 0 auto;
+    padding: 0 15px;
     display: flex;
+    @media (max-width: 1338px) {
+        max-width: 1170px;
+    }
+    @include _1170 {
+        max-width: 979px;
+    }
+    @include _979 {
+        max-width: 768px;
+    }
+    @include _768 {
+        max-width: 600px;
+    }
 }
