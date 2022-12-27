@@ -1,9 +1,9 @@
 import React from 'react'
 import s from '../Home.module.scss'
 
-const Button = ({inner}) => {
+const Button = ({inner, ...props}) => {
   return (
-    <button className={s.arrowButton}>{inner}</button>
+    <button className={s.arrowButton} onClick={props.onClick}>{inner}</button>
   )
 }
 

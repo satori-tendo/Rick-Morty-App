@@ -9,7 +9,7 @@ const Main = () => {
     const [characters, setCharacters] = useState([]);
     const [charactersInfo, setCharactersInfo] = useState([]);
     const [inputValue, setInputValue] = useState('');
-    const [currentPage, setCurrentPage] = useState(2)
+    const [currentPage, setCurrentPage] = useState(1)
 
     const updateCurrPage = (number) => { //прокидываем в Paginator чтобы получить оттуда текущую страницу
         setCurrentPage(number)
