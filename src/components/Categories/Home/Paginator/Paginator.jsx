@@ -45,7 +45,7 @@ const Paginator = ({portionSize = 5, pages, ...props}) => {
                 {pagesCount
                     .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
                     .map((p) => {
-                        return <Link to={`/home?page=${p}`}><button className={p == currentPage ? s.currPageButton : s.button} key={p}
+                        return <Link to={`/home?page=${p}`} key={p}><button className={p == currentPage ? s.currPageButton : s.button} key={p}
                             onClick={(e) => onButtonClick(p)}>{p}</button></Link>
                     })}
             <Button inner='>' onClick={(e) => {plusPortionNumber()}}/>

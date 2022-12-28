@@ -1,9 +1,7 @@
 @import '../../../style/mixins.scss';
 
 .home {
-    padding: 40px 0px 0px 60px;
-    background-color: #363636;
-    min-width: 100%;
+    @include defaultPage;
 }
 .formDiv {
 
@@ -56,9 +54,13 @@
     }
 }
 .item {
-    max-width: 200px;
+    box-sizing: border-box;
+    width: 200px;
     background: #1F1F1F;
     border-radius: 6px;
+    &:hover {
+        border: 2px solid #F33F3F;
+    }
 }
 .poster {
     border-radius: 6px 6px 0px 0px;

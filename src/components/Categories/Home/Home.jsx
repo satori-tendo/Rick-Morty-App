@@ -3,6 +3,7 @@ import Item from './Item'
 import s from './Home.module.scss'
 import axios from 'axios'
 import Paginator from './Paginator/Paginator'
+import { Link } from 'react-router-dom'
 
 const Main = () => {
 
@@ -27,7 +28,6 @@ const Main = () => {
             setCharacters(response.data.results)
             setCharactersInfo(response.data.info)
           })
-        console.log(characters)
       }, [currentPage])
 
 
@@ -46,7 +46,9 @@ const Main = () => {
         <h1 className={s.title}>All Characters</h1>
         <div className={s.items}>
             {characters.map((person) => {
-                return <Item img={person.image} name={person.name} key={person.id}/>
+                return <Link to={'/character/' + person.id}>
+                            <Item img={person.image} name={person.name} key={person.id}/>
+                        </Link>
             })}
         </div>
         <Paginator pages={charactersInfo.pages} updateCurrPage={updateCurrPage}/>

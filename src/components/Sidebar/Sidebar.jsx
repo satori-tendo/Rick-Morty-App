@@ -11,7 +11,7 @@ import { Router } from 'react-router-dom'
 const Sidebar = () => {
   return (
     <aside className={s.sidebar}>
-        <h1 className={s.title}>Rick&Morty</h1>
+        <Link to={'/'}><h1 className={s.title}>Rick&Morty</h1></Link>
         <div className={s.search}>
             <input type="text" placeholder='Search' className={s.input}/>
         </div>
