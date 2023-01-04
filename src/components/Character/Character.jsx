@@ -1,19 +1,20 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
+import { getSingleCharacterThunk } from '../../redux/characterReducer';
 import s from './Character.module.scss'
 
 const Character = () => {
 
+    const dispatch = useDispatch();
+    const character = useSelector(state => state.characters.singleCharacter);
+    
     let { charaId } = useParams();
-    const [character, setCharacter] = useState({});
     useEffect(() => {
-        axios.get(`https://rickandmortyapi.com/api/character/${charaId}`)
-            .then(response => {
-                setCharacter(response.data)
-                console.log(character)
-            })
-    }, [charaId])
+        dispatch(getSingleCharacterThunk(charaId))
+        console.log(character)
+    }, [])
     window.character = character;
     window.id = charaId;
 
@@ -32,8 +33,7 @@ const Character = () => {
         </div>
         <div className={s.text}>
             <span>Тут должно быть что-то о "{character.name}" но ты мне не пишешь</span>
-            <span>P.S: Если информация не прогружается, то это не я плохо написал код, а апишка тормозит,
-                    ну или просто немного подождите, кек</span> 
+            <span>P.S: Если информация не прогружается, то просто немного подождите, кек</span> 
         </div>
     </div>
   )

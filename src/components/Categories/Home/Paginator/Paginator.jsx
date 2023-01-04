@@ -5,11 +5,6 @@ import Button from './Button'
 
 const Paginator = ({portionSize = 5, pages, ...props}) => {
 
-    const [currentPage, setCurrentPage] = useState(1);
-    const onButtonClick = (page) => {
-        setCurrentPage(page)
-        props.updateCurrPage(page)
-    }
 
     const [portionNumber, setPortionNumber] = useState(1);
     const portionsCount = Math.ceil(pages / portionSize);
@@ -45,8 +40,11 @@ const Paginator = ({portionSize = 5, pages, ...props}) => {
                 {pagesCount
                     .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
                     .map((p) => {
-                        return <Link to={`/home?page=${p}`} key={p}><button className={p == currentPage ? s.currPageButton : s.button} key={p}
-                            onClick={(e) => onButtonClick(p)}>{p}</button></Link>
+                        return <Link to={`/home?page=${p}`} key={p}>
+                                    <button className={p == props.currentPage ? s.currPageButton : s.button} key={p}>
+                                        {p}
+                                    </button>
+                                </Link>
                     })}
             <Button inner='>' onClick={(e) => {plusPortionNumber()}}/>
         </div>

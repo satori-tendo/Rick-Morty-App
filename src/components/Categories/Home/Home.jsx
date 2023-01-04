@@ -1,38 +1,40 @@
 import React, {useState, useEffect} from 'react'
 import Item from './Item'
 import s from './Home.module.scss'
-import axios from 'axios'
 import Paginator from './Paginator/Paginator'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { getCharactersThunk } from '../../../redux/characterReducer'
+
 
 const Main = () => {
 
-    const [characters, setCharacters] = useState([]);
-    const [charactersInfo, setCharactersInfo] = useState([]);
-    const [inputValue, setInputValue] = useState('');
-    const [currentPage, setCurrentPage] = useState(1)
+    const [searchParams] = useSearchParams();
+    const currentPage = searchParams.get('page')
 
-    const updateCurrPage = (number) => { //прокидываем в Paginator чтобы получить оттуда текущую страницу
-        setCurrentPage(number)
-    }
+    const [inputValue, setInputValue] = useState('');
+
+    const dispatch = useDispatch();
+    const characters = useSelector(state => state.characters.characters) 
+    const charactersInfo = useSelector(state => state.characters.charactersInfo)
+
     window.currentPage = currentPage;
 
+// при перезагрузке страницы мы берем данные из useState и поэтому при перезагрузке 
+// мы попадаем обратно на первую страницу т.к дефолтное значение 1
+// TODO: попробовать взять данные из url 
 
     const onInputChange = (e) => {
         setInputValue(e.target.value)
     }
     
     useEffect(() => {
-        axios.get(`https://rickandmortyapi.com/api/character?page=${currentPage}`)
-          .then(response => {
-            setCharacters(response.data.results)
-            setCharactersInfo(response.data.info)
-          })
-      }, [currentPage])
+        dispatch(getCharactersThunk(currentPage))
+    }, [currentPage])
 
 
-      window.info = charactersInfo;
-      window.chara = characters;
+    window.info = charactersInfo;
+    window.chara = characters;
 
   return (
     <div className={s.home}>
@@ -51,7 +53,7 @@ const Main = () => {
                         </Link>
             })}
         </div>
-        <Paginator pages={charactersInfo.pages} updateCurrPage={updateCurrPage}/>
+        <Paginator pages={charactersInfo.pages} currentPage={currentPage}/>
     </div>
   )
 }
